@@ -1,0 +1,50 @@
+{% extends 'Main/base.html' %}
+{% block title %} Task-Register {% endblock title %}
+{% block content %}
+<div class="container-fluid vh-100">
+    <div class="container">
+        <!-- <div class="row col-12 mt-3">
+            
+            
+        </div> -->
+        <div class="row my-5">
+            <div class="col-lg-6 border mx-auto px-5  py-3" style="border-radius:5px;">
+                <h2>Create a account</h2>
+                <hr style="border-bottom: 1px solid #464645;">
+                <form action="" method="post" >
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="" class="form-label">Username</label>
+                        {{form.username}}
+                        {% if form.errors.username %}
+                        <label for="" class="text-danger">{{ form.errors.username }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email address</label>
+                        {{form.email}}
+                        {% if form.errors.email %}
+                        <label for="" class="text-danger">{{ form.errors.email }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Password</label>
+                        {{form.password1}}
+                        {% if form.errors.password1 %}
+                        <label for="" class="text-danger">{{ form.errors.password1 }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Confirm Password</label>
+                        {{form.password2}}
+                        {% if form.errors.password2 %}
+                        <label for="" class="text-danger">{{ form.errors.password2 }}</label>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="btn btn-success  w-100">Register</button>                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

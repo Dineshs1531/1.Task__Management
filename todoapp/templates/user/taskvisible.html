@@ -1,0 +1,77 @@
+{% extends 'Main/base.html' %}
+{% load static %}
+{% block title %} Your Task {% endblock title %}
+
+{% block content %}
+<div class="container-fluid vh-100" >
+    <div class="row m-4">
+        {% csrf_token %}
+        <div class="row table-responsive">
+            <h4 style="margin-top:35px;">YOUR WORKS</h4>
+        <hr style="border-bottom : 1px solid #191818;">
+        </div>
+        <div class="row">
+            {% if task %}
+            <table class="table-bordered table table-hover" >
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Title</th>
+                    <!-- <th>Description</th> -->
+                    <th scope="col">Created Date</th>
+                    <th scope="col">Updated Date</th>
+                    
+                    <th scope="col">Due_date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Prioprity</th>
+                    <th scope="col">complete</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in task %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.created_at}}</td>
+                    <td>{{item.updated_at}}</td>
+                    <td>{{item.due_date}}</td>
+                    <td>{{item.Time}}</td>
+                    <td>{{item.priority}}
+
+                    </td>
+                    <td>
+                        {% if item.completed_status %}
+                        <span class="btn  btn-success">Yes</span>
+                        {% else %}
+                        <span class="btn btn-small btn-danger">No</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'taskvieweach' item.pk %}"><i class="fa-solid fa-eye h3" style="color: green;"></i></a>
+                    </td>
+                    <td>
+                        <a href="{% url 'updatetask' item.pk %}"><i class="fa-solid fa-pen-to-square h3 " ></i></a>
+                    </td>
+                    <td>
+                        <a href="{% url 'deletepage' item.pk %}"><i class="fa-solid fa-trash h3" style="color: red;"></i></a>
+                    </td>
+                   
+
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            
+            {% else %}
+            <h4 class="text-danger text-center">Your Task is empty</h4>
+            {% endif %}
+           <span><a href="{% url 'createtask' %}" class="btn btn-success ">Create Task</a></span> 
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'Main/base.html' %}
+
+{% block content %}
+<div class="container-fluid p-5 h-100">
+<div class="container vh-75">
+    <h2>Delete Your Task</h2>
+    <hr style="border-bottom: 1px solid #1515152f">
+    <p>Are you sure <b>{{ user }}</b> want to delete?</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{item}}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'taskvisible' %}" class="btn btn-primary">Cancel</a>
+    </form>
+    
+</div>
+</div>
+{% endblock content %}

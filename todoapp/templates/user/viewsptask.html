@@ -1,0 +1,15 @@
+{% extends 'Main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid viewtask p-5 " style="min-height:500px;">
+    <div class="container ">
+        <h3 style="color:red;">Your Task Detail Information</h3>
+        <hr style="border-bottom:1px solid #090909">
+        <p class="display-6"><b >Task Title  : </b>{{item.title}}</p>
+        <p><b>Description : </b>{{item.description}}</p>
+        <a href="{% url 'taskvisible' %}" class="btn btn-success">Back</a>
+        <a href="{% url 'updatetask' item.pk %}" class="btn btn-warning">Update</a>
+    </div>
+</div>
+
+{% endblock content %}

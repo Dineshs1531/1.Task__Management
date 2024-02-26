@@ -1,0 +1,58 @@
+{% extends 'Main/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid p-2 ">
+    <div class="container">
+        {% if form.instance.pk %}
+        <h1 class="mt-2">Edit a Task</h1>
+        {% else %}
+        <h1 class="mt-2">Create a Task</h1>
+        {% endif %}
+        <hr style="border-bottom:1px solid #1c1c1c"> 
+        <form action="" method="post" class="col-lg-9  mx-auto border p-4  rounded" style="background-color: rgba(40, 41, 41, 0.322);">
+        {% csrf_token %}
+        <div class="mb-4 form-group">
+            <label for="">Title</label>
+             <p>{{form.title}}</p>
+        </div>
+        <div class="mb-4">
+            <label for="">Description</label>
+             {{ form.description }}
+        </div>
+        <div class="mb-4">
+            <label for="">Due Date</label>
+             {{ form.due_date }}
+        </div>
+        <div class="mb-4">
+            <label for="">Created Date</label>
+             {{ form.created_at }}
+        </div>
+        <div class="mb-4">
+            <label for="">Updated Date</label>
+             {{ form.updated_at }}
+        </div>
+        <div class="mb-4">
+            <label for="">Priority</label>
+            {{ form.priority }}
+        </div>
+        <div class="mb-4">
+            <label for="">Time</label>
+            {{ form.Time }}
+        </div>
+        <div class="mb-4">
+            <label for="">completed_status</label>
+            {{ form.completed_status }}
+        </div>
+        
+            {% if form.instance.pk %}
+            <button type="submit" class="btn btn-warning text-center align-items-cente mx-auto btn-large w-25">Update a Task</button>
+            
+            {% else %}
+            <button type="submit" class="btn btn-success text-center align-items-cente mx-auto btn-large w-25">Cretaing a Task</button>
+            {% endif %}
+            
+        </form>
+    </div>
+</div>
+{% endblock content %}

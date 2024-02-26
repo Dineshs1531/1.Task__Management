@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}TODO{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  </head>
+  <body>
+    {% include 'inc/navbar.html' %}
+    {% block content %}
+    <div class="container-fluid base p-0 m-0" >
+      <div class="container mt-3">
+        <div class="row  main" >
+          <div class="col-lg-2 cols1 d-flex  justify-content-start">
+            <img src="{% static 'images/persons/1.jpg'  %}" alt="">
+          </div>
+          <div class="col-lg-8">
+            <p class="text-center mt-2 title">#1 Task Management Platform</p>
+        <h1 class="info mx-auto text-center p-0">Your workflow is</h1>
+        <h1 class="info mx-auto text-center">unique, simplify it </h1>
+        <h1 class="info mx-auto text-center"> in one place</h1>
+        <p class="text-center mt-5 info1">Organize your tech startup's work, <br>
+         improve collaboration, and increase transparency with one tool.</p>
+        <p class="d-flex justify-content-center ">
+          <a href="{% url 'createtask' %}" class="btn btn-primary btn-lg mt-4">Get Started For Free</a>
+          </p>
+          </div>
+          <div class="col-lg-2 cols1 d-flex justify-content-around flex-column-reverse h-lg-100">
+            <img src="{% static 'images/persons/3.jpg'  %}" alt="">
+          </div>
+        
+        <!-- <img src="{% static 'images/persons/2.jpg'  %}" alt=""> -->
+        
+        <!-- <img src="" alt=""> -->
+        
+        </div>
+        
+
+      </div>
+    </div>
+    
+    
+    {% endblock content %}
+    {% include 'inc/footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
